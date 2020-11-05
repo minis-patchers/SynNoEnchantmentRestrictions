@@ -1,0 +1,32 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "enchrestrictionremover", "enchrestrictionremover\enchrestrictionremover.csproj", "{FDE8A5CB-06A0-480A-ABA5-899D5612554B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloraFixer", "FloraFixer\FloraFixer.csproj", "{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Debug|x64.Build.0 = Debug|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Debug|x86.Build.0 = Debug|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Release|x64.ActiveCfg = Release|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Release|x64.Build.0 = Release|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Release|x86.ActiveCfg = Release|Any CPU
+		{F7B3BD2B-46B3-43FA-B1F0-3DA7006007EB}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
