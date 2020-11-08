@@ -33,7 +33,7 @@ namespace enchrestrictionremover
             }
             foreach(var ench in state.LoadOrder.PriorityOrder.OnlyEnabled().ObjectEffect().WinningOverrides()) {
                 if(ench.EnchantType != ObjectEffect.EnchantTypeEnum.StaffEnchantment) {
-                    var onch = ench.GetOrAddAsOverride();
+                    var onch = state.PatchMod.ObjectEffects.GetOrAddAsOverride(ench);
                     onch.WornRestrictions = formList.FormKey;
                 }
             }
