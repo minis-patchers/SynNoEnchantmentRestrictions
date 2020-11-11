@@ -1,6 +1,7 @@
 {
   "Nickname": "SynEnchantmentRestrictionRemover",
-  "HideByDefault": false,
+  "Visibility": "Visible",
   "OneLineDescription": "Synthesis based enchantment restriction remover",
-  "LongDescription": "Enables all enchantments to be applied to nearly everything"
+  "LongDescription": "Enables all enchantments to be applied to nearly everything",
+  "PreferredAutoVersioning": "Default"
 }
