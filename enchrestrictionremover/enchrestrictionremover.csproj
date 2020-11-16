@@ -4,7 +4,7 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Mutagen.Bethesda" Version="0.20.1" />
-      <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.10.16" />
+      <PackageReference Include="Mutagen.Bethesda" Version="0.21.0" />
+      <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.10.17" />
     </ItemGroup>
 </Project>
