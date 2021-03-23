@@ -9,21 +9,16 @@ namespace SynEnchRestrictionsRemover
     {
         public static async Task<int> Main(string[] args)
         {
-
-            return await SynthesisPipeline.Instance.AddPatch<ISkyrimMod, ISkyrimModGetter>(RunPatch).Run(args, new RunPreferences()
-            {
-                ActionsForEmptyArgs = new RunDefaultPatcher
-                {
-                    IdentifyingModKey = "EnchRestricts.esp",
-                    TargetRelease = GameRelease.SkyrimSE
-                }
-            });
+            return await SynthesisPipeline.Instance
+                .AddPatch<ISkyrimMod, ISkyrimModGetter>(RunPatch)
+                .SetTypicalOpen(GameRelease.SkyrimSE, "EnchRestricts.esp")
+                .Run(args);
         }
 
         public static void RunPatch(IPatcherState<ISkyrimMod, ISkyrimModGetter> state)
         {
             var formList = state.PatchMod.FormLists.AddNew("NER");
-            foreach (var kywd in state.LoadOrder.PriorityOrder.OnlyEnabled().Keyword().WinningOverrides())
+            foreach (var kywd in state.LoadOrder.PriorityOrder.Keyword().WinningOverrides())
             {
                 var edid = kywd.EditorID;
                 if ((edid?.Contains("Clothing") ?? false) || ((edid?.Contains("Armor") ?? false) && (!edid?.Contains("ArmorMaterial") ?? false)) || (edid?.Contains("WeapType") ?? false))
@@ -31,12 +26,12 @@ namespace SynEnchRestrictionsRemover
                     formList.Items.Add(kywd.FormKey);
                 }
             }
-            foreach (var ench in state.LoadOrder.PriorityOrder.OnlyEnabled().ObjectEffect().WinningOverrides())
+            foreach (var ench in state.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides())
             {
                 if (ench.EnchantType != ObjectEffect.EnchantTypeEnum.StaffEnchantment)
                 {
                     var onch = state.PatchMod.ObjectEffects.GetOrAddAsOverride(ench);
-                    onch.WornRestrictions = formList.FormKey;
+                    onch.WornRestrictions.SetTo(formList);
                 }
             }
         }
