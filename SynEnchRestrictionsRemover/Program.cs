@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Synthesis;
 using Mutagen.Bethesda.Skyrim;
+using Noggog;
 
 namespace SynEnchRestrictionsRemover
 {
@@ -18,22 +19,22 @@ namespace SynEnchRestrictionsRemover
         public static void RunPatch(IPatcherState<ISkyrimMod, ISkyrimModGetter> state)
         {
             var formList = state.PatchMod.FormLists.AddNew("NER");
-            foreach (var kywd in state.LoadOrder.PriorityOrder.Keyword().WinningOverrides())
+            state.LoadOrder.PriorityOrder.Keyword().WinningOverrides().ForEach(kywd =>
             {
                 var edid = kywd.EditorID;
                 if ((edid?.Contains("Clothing") ?? false) || ((edid?.Contains("Armor") ?? false) && (!edid?.Contains("ArmorMaterial") ?? false)) || (edid?.Contains("WeapType") ?? false))
                 {
                     formList.Items.Add(kywd.FormKey);
                 }
-            }
-            foreach (var ench in state.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides())
+            });
+            state.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides().ForEach(ench =>
             {
                 if (ench.EnchantType != ObjectEffect.EnchantTypeEnum.StaffEnchantment)
                 {
                     var onch = state.PatchMod.ObjectEffects.GetOrAddAsOverride(ench);
                     onch.WornRestrictions.SetTo(formList);
                 }
-            }
+            });
         }
     }
 }
