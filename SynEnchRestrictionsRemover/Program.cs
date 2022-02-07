@@ -1,7 +1,9 @@
 using System.Threading.Tasks;
+
 using Mutagen.Bethesda;
-using Mutagen.Bethesda.Synthesis;
 using Mutagen.Bethesda.Skyrim;
+using Mutagen.Bethesda.Synthesis;
+
 using Noggog;
 
 namespace SynEnchRestrictionsRemover
