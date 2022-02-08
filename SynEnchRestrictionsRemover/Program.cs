@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Mutagen.Bethesda;
@@ -24,9 +25,12 @@ namespace SynEnchRestrictionsRemover
             state.LoadOrder.PriorityOrder.Keyword().WinningOverrides().ForEach(kywd =>
             {
                 var edid = kywd.EditorID;
-                if ((edid?.Contains("Clothing") ?? false) || ((edid?.Contains("Armor") ?? false) && (!edid?.Contains("ArmorMaterial") ?? false)) || (edid?.Contains("WeapType") ?? false))
+                if (!edid.IsNullOrEmpty())
                 {
-                    formList.Items.Add(kywd.AsLinkGetter());
+                    if (Regex.IsMatch(edid, "^Clothing.*") || Regex.IsMatch(edid, "^Armor.*") || Regex.IsMatch(edid, "^WeapType.*"))
+                    {
+                        formList.Items.Add(kywd);
+                    }
                 }
             });
             state.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides().ForEach(ench =>
