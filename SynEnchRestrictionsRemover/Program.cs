@@ -35,7 +35,7 @@ namespace SynEnchRestrictionsRemover
             });
             state.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides().ForEach(ench =>
             {
-                if (ench.EnchantType != ObjectEffect.EnchantTypeEnum.StaffEnchantment)
+                if (ench.EnchantType != ObjectEffect.EnchantTypeEnum.StaffEnchantment && !ench.WornRestrictions.IsNull)
                 {
                     var onch = state.PatchMod.ObjectEffects.GetOrAddAsOverride(ench);
                     onch.WornRestrictions.SetTo(formList);
