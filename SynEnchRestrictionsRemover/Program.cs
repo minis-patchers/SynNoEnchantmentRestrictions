@@ -26,7 +26,7 @@ namespace SynEnchRestrictionsRemover
                 var edid = kywd.EditorID;
                 if ((edid?.Contains("Clothing") ?? false) || ((edid?.Contains("Armor") ?? false) && (!edid?.Contains("ArmorMaterial") ?? false)) || (edid?.Contains("WeapType") ?? false))
                 {
-                    formList.Items.Add(kywd.FormKey);
+                    formList.Items.Add(kywd.AsLinkGetter());
                 }
             });
             state.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides().ForEach(ench =>
