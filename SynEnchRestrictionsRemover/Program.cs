@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -27,8 +28,9 @@ namespace SynEnchRestrictionsRemover
                 var edid = kywd.EditorID;
                 if (!edid.IsNullOrEmpty())
                 {
-                    if (Regex.IsMatch(edid, "^Clothing.*") || Regex.IsMatch(edid, "^Armor.*") || Regex.IsMatch(edid, "^WeapType.*"))
+                    if (edid.StartsWith("Clothing") || edid.StartsWith("WeapType") || edid.StartsWith("Armor") || edid.StartsWith("Jewelry"))
                     {
+                        Console.WriteLine($"Adding keyword {edid} to formlist");
                         formList.Items.Add(kywd);
                     }
                 }
