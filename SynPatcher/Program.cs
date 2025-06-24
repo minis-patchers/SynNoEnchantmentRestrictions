@@ -1,14 +1,11 @@
 using System;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Skyrim;
 using Mutagen.Bethesda.Synthesis;
-
 using Noggog;
 
-namespace SynEnchRestrictionsRemover
+namespace SynPatcher
 {
     internal class Program
     {
